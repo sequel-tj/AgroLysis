@@ -3,32 +3,68 @@
 {% block crops %}
 
 <section id="crops-section">
-    <div class="crops-container">
-        <h2>CROPS PREDICTOR</h2>
+    <h2>CROP PREDICTOR</h2>
+    <div class="form-container">
+        <form action="/cropsResult" method="post">
+            <div class="crops-container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="nitrogen">Nitrogen</label>
+                            <input type="text" class="form-control" name="nitrogen" id="nitrogen" required
+                                placeholder="Enter the value (example: 50)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="phosphorus">Phosphorus</label>
+                            <input type="text" class="form-control" name="phosphorus" id="phosphorus" required
+                                placeholder="Enter the value (example: 50)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="potassium">Potassium</label>
+                            <input type="text" class="form-control" name="potassium" id="potassium" required
+                                placeholder="Enter the value (example: 50)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="temperature">Temperature</label>
+                            <input type="text" class="form-control" name="temperature" id="temperature" required
+                                placeholder="Enter the temperature in °C">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="humidity">Humidity</label>
+                            <input type="text" class="form-control" name="humidity" id="humidity" required
+                                placeholder="Enter humidity in %">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="pH">pH</label>
+                            <input type="text" class="form-control" name="pH" id="pH" required
+                                placeholder="Enter the pH value">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="rainfall">Rainfall</label>
+                            <input type="text" class="form-control" name="rainfall" id="rainfall" required
+                                placeholder="Enter rainfall in mm">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="form-container">
-            <form action="/cropsResult" method="post">
-                <div class="form-card">
-                    <label for="nitrogen">Nitrogen</label>
-                    <input type="text" required name="nitrogen" id="nitrogen" placeholder="Enter the value (example: 50)">
-                </div>
-                <div class="form-card">
-                    <label for="phosphorous">Phosphorous</label>
-                    <input type="text" required name="phosphorous" id="phosphorous" placeholder="Enter the value (example: 50)">
-                </div>
-                <div class="form-card">
-                    <label for="pottasium">Pottasium</label>
-                    <input type="text" required name="pottasium" id="pottasium" placeholder="Enter the value (example: 50)">
-                </div>
-                <div class="form-card">
-                    <label for="ph">ph level</label>
-                    <input type="text" required name="ph" id="ph" placeholder="Enter the value (example: 50)">
-                </div>
-                <div class="form-card">
-                    <label for="rainfall">Rainfall (in mm)</label>
-                    <input type="text" required name="rainfall" id="rainfall" placeholder="Enter the value (example: 50)">
-                </div>
-                <div class="form-card">
+            <!-- <div class="form-card">
                     <label for="state">State</label>
                     <select required name="state" id="state" onchange="show_cities('city', this.selectedIndex);">
                     </select>
@@ -38,11 +74,31 @@
                     <select required name="city" id="city">
                         <option value="select">Select City</option>
                     </select>
-                </div>
+                </div> -->
 
-                <button class="btn btn-outline-danger" type="submit">Predict</button>
-            </form>
+            <div class="form-submit">
+                <button class="btn btn-outline-danger btn-lg" type="submit">Predict</button>
+            </div>
+        </form>
+
+        {% if result %}
+        <div class="crops-result">
+            <h2>Result:</h2>
+            {% if data == "-1" %}
+            <h5>Sorry, we are not able to recommed a proper crop for this enviroment!</h5>
+            {% else %}
+            <div class="crops-result-container">
+                {% for i in range(data[0]|length) %}
+                <div class="crops-result-card">
+                    <img src="{{data[1][i]}}" alt="{{data[0][i]}}-image">
+                    <h6>Recommended crop for cultivation is : <span>{{data[0][i]}}</span></h6>
+                    <!-- <h4>{{data[0][i]}}</h4> -->
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
+        {% endif %}
     </div>
 
     <script type="text/javascript">

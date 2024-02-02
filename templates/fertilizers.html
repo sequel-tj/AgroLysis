@@ -3,61 +3,71 @@
 {% block fertilizers %}
 
 <section id="fertilizers-section">
-    <div class="fertilizers-container">
-        <h2>FERTILIZERS REQUIRED</h2>
-
-        <div class="form-container">
-            <form method="POST" action="/fertilizersRequired">
-                <div class="form-card">
-                    <label for="nitrogen">Nitrogen</label>
-                    <input type="number" id="nitrogen" name="nitrogen" placeholder="Enter the value (example:50)"
-                        required>
+    <h2>FERTILIZERS REQUIRED</h2>
+    <div class="form-container">
+        <form method="post" action="/fertilizersRequired">
+            <div class="fertilizers-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="nitrogen">Nitrogen</label>
+                            <input type="text" class="form-control" id="nitrogen" name="nitrogen" placeholder="Enter the value (example:50)"
+                                required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phosphorus">Phosphorus</label>
+                            <input type="text" class="form-control" id="phosphorus" name="phosphorus"
+                                placeholder="Enter the value (example:50)" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="potassium">Potassium</label>
+                            <input type="text" class="form-control" id="potassium" name="potassium"
+                                placeholder="Enter the value (example:50)" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cropName">Crop you want to grow</label>
+                            <select class="form-control" required name="cropName" id="cropName" placeholder="Select a crop">
+                                <option selected>Select crop</option>
+                                <option>rice</option>
+                                <option>maize</option>
+                                <option>chickpea</option>
+                                <option>kidneybeans</option>
+                                <option>pigeonpeas</option>
+                                <option>mothbeans</option>
+                                <option>mungbean</option>
+                                <option>blackgram</option>
+                                <option>lentil</option>
+                                <option>pomegranate</option>
+                                <option>banana</option>
+                                <option>mango</option>
+                                <option>grapes</option>
+                                <option>watermelon</option>
+                                <option>muskmelon</option>
+                                <option>apple</option>
+                                <option>orange</option>
+                                <option>papaya</option>
+                                <option>coconut</option>
+                                <option>cotton</option>
+                                <option>jute</option>
+                                <option>coffee</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-card">
-                    <label for="phosphorous">Phosphorous</label>
-                    <input type="number" id="phosphorous" name="phosphorous" placeholder="Enter the value (example:50)"
-                        required>
+                <div style="margin-top: 30px;" class="form-submit">
+                    <button  class="btn btn-outline-danger btn-lg" type="submit">Result</button>
                 </div>
-
-                <div class="form-card">
-                    <label for="pottasium">Pottasium</label>
-                    <input type="number" id="pottasium" name="pottasium" placeholder="Enter the value (example:50)"
-                        required>
-                </div>
-
-                <div class="form-card">
-                    <label for="cropName">Crop you want to grow</label>
-                    <select required name="cropName" id="cropName" placeholder="Select a crop">
-                        <option selected>Select crop</option>
-                        <option>rice</option>
-                        <option>maize</option>
-                        <option>chickpea</option>
-                        <option>kidneybeans</option>
-                        <option>pigeonpeas</option>
-                        <option>mothbeans</option>
-                        <option>mungbean</option>
-                        <option>blackgram</option>
-                        <option>lentil</option>
-                        <option>pomegranate</option>
-                        <option>banana</option>
-                        <option>mango</option>
-                        <option>grapes</option>
-                        <option>watermelon</option>
-                        <option>muskmelon</option>
-                        <option>apple</option>
-                        <option>orange</option>
-                        <option>papaya</option>
-                        <option>coconut</option>
-                        <option>cotton</option>
-                        <option>jute</option>
-                        <option>coffee</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn btn-outline-danger">Result</button>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </section>
 

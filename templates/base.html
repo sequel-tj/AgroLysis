@@ -37,8 +37,7 @@
                     </a>
                 {% else %}                
                     <a href="/login" onclick="func" class="nav-link">
-                        <img width="22" height="22" src="https://img.icons8.com/windows/22/user-male-circle.png"
-                            alt="user-male-circle" />
+                        <img width="22" height="22" src="https://img.icons8.com/windows/22/user-male-circle.png" alt="user" />
                         <span id="login-user">login</span>
                     </a>
                 {% endif %}
@@ -73,6 +72,8 @@
         </div>
     </nav>
 
+    <div style="width: 100%; height: 65px; background-color: #f1f1f1;"></div>
+
     {% block homepage %}
     {% endblock homepage %}
 
@@ -90,10 +91,10 @@
 
 
     <footer>
-        <p>Made with ❤️ by DTU(SRM)</p>
-        <p>Icons by
+        Made with ❤️ by DTU(SRM)
+        <!-- <p>Icons by
             <a target="_blank" href="https://icons8.com">Icons8</a>
-        </p>
+        </p> -->
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
