@@ -25,6 +25,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -56,29 +57,36 @@ class RegistrationForm(FlaskForm):
 
 
 @app.route('/')
-def homepage():   
-    return render_template('index.html')
+def homepage():  
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
+    return render_template('index.html', lang = lang)
 
 
 @app.route('/crops')
 def crops():
-    return render_template('crops.html')
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
+    return render_template('crops.html', lang = lang)
 
 
 @app.route('/fertilizers')
 def fertilizers():
-    return render_template('fertilizers.html')
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
+    return render_template('fertilizers.html', lang = lang)
 
 
 @app.route('/disease')
 def disease():
-    return render_template('disease.html')
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
+    return render_template('disease.html', lang = lang)
 
 
 
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
     form = RegistrationForm()
+
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
+
     if form.validate_on_submit():
         hashed_pwd = bcrypt.generate_password_hash(form.password.data)
         new_user = User(name = form.name.data, email = form.email.data, password = hashed_pwd)
@@ -86,12 +94,14 @@ def signup():
         db.session.commit()
         return redirect('/login')
 
-    return render_template('signup.html', form=form)
+    return render_template('signup.html', form = form, lang = lang)
 
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
     form = LoginForm()
+
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
 
     if form.validate_on_submit():
         user = User.query.filter_by(email = form.email.data).first()
@@ -99,7 +109,7 @@ def login():
             login_user(user)
             return redirect('/')
 
-    return render_template('login.html', form=form)
+    return render_template('login.html', form = form, lang = lang)
 
 
 @app.route('/logout', methods = ['GET', 'POST'])
@@ -112,12 +122,15 @@ def logout():
 @app.route('/dashboard', methods = ['GET', 'POST'])
 @login_required
 def user():
-    return "user dashboard"
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
+    return render_template("dashboard.html", lang = lang)
 
 
 
 @app.route('/cropsResult', methods = ['POST'])
 def cropsResult():
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
+
     if request.method == 'POST':
         n = float(request.form['nitrogen'])
         p = float(request.form['phosphorus'])
@@ -197,11 +210,13 @@ def cropsResult():
         else:
             return render_template('crops.html', result = True, data = "-1")
 
-    return render_template('crops.html', result = False)
+    return render_template('crops.html', result = False, lang = lang)
 
 
 @app.route('/fertilizersRequired', methods = ['GET', 'POST'])
 def requiredFertilizers():
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
+
     if request.method == 'POST':
         pass
     
@@ -210,6 +225,8 @@ def requiredFertilizers():
 
 @app.route('/diseasePredictor', methods = ['GET', 'POST'])
 def predictDisease():
+    lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
+
     if request.method == 'POST':
         print(request.form)
     

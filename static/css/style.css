@@ -26,6 +26,15 @@ footer {
 /* base.html file */
 
 .navBar {
+    width: 98%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#navBar {
     margin: 0;
     display: block;
     position: fixed;
@@ -40,7 +49,7 @@ footer {
 .navBar-container {
     position: relative;
     margin: auto;
-    width: 80%;
+    width: 90%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -53,7 +62,7 @@ footer {
 }
 
 .navBar-logo {
-    width: 50%;
+    width: 40%;
     height: 100%;
 }
 

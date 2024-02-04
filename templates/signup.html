@@ -4,21 +4,24 @@
 
 <section id="login">
     <div class="login-container">
+        <div class="login-left">
+            <img src="https://images.unsplash.com/photo-1535379453347-1ffd615e2e08" alt="login-img">
+        </div>
         <div class="login-right">
             <h2>Create your account</h2>
             <p>Already have an account? <a href="/login">Log In</a></p>
             <form action="" method="POST" style="height: 60%;">
                 {{ form.hidden_tag() }}
-                <input class="form-control" onchange="firstName()" type="text" name="fname" id="fname" required placeholder="first name">
-                <input class="form-control" onchange="lastName()" type="text" name="lname" id="lname" required placeholder="last name">
+                <input class="form-control" onchange="firstName()" type="text" name="fname" id="fname" required
+                    placeholder="first name">
+                <input class="form-control" onchange="lastName()" type="text" name="lname" id="lname" required
+                    placeholder="last name">
                 {{form.email(class="form-control")}}
                 {{form.password(class="form-control")}}
                 {{form.submit(class="btn btn-outline-primary")}}
             </form>
         </div>
-        <div class="login-left">
-            <img src="https://images.unsplash.com/photo-1535379453347-1ffd615e2e08" alt="login-img">
-        </div>
+
     </div>
 
 </section>
