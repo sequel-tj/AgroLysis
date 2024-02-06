@@ -128,8 +128,8 @@
     <script type="text/javascript">
         function langTranslate(event) {
             // console.log(event.srcElement.innerText);
-            if (event.srcElement.innerText === "हिन्दी") window.location.href = "http://localhost:3000" + window.location.pathname + "?lang=Hindi";
-            if (event.srcElement.innerText === "English") window.location.href = "http://localhost:3000" + window.location.pathname + "?lang=English";
+            if (event.srcElement.innerText === "हिन्दी") window.location.href = window.location.host + window.location.pathname + "?lang=Hindi";
+            if (event.srcElement.innerText === "English") window.location.href = window.location.host + window.location.pathname + "?lang=English";
         }
     </script>
 
