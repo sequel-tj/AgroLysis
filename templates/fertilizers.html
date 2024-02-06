@@ -11,8 +11,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nitrogen">Nitrogen</label>
-                            <input type="text" class="form-control" id="nitrogen" name="nitrogen" placeholder="Enter the value (example:50)"
-                                required>
+                            <input type="text" class="form-control" id="nitrogen" name="nitrogen"
+                                placeholder="Enter the value (example:50)" required>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -34,7 +34,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="cropName">Crop you want to grow</label>
-                            <select class="form-control" required name="cropName" id="cropName" placeholder="Select a crop">
+                            <select class="form-control" required name="cropName" id="cropName"
+                                placeholder="Select a crop">
                                 <option selected>Select crop</option>
                                 <option>rice</option>
                                 <option>maize</option>
@@ -65,24 +66,20 @@
             </div>
 
             <div style="margin-top: 30px;" class="form-submit">
-                <button  class="btn btn-outline-danger btn-lg" type="submit">Result</button>
+                <button class="btn btn-outline-danger btn-lg" type="submit">Result</button>
             </div>
         </form>
 
         {% if result %}
-        <div class="crops-result">
+        <div class="fertilizer-result">
             <h2>Result:</h2>
             {% if data == "-1" %}
             <h5>Sorry, we are not able to recommed a fertilizer for the given data and selected crop!!</h5>
             {% else %}
-            <div class="crops-result-container">
-                {% for i in range(data[0]|length) %}
-                <div class="crops-result-card">
-                    <img src="{{data[1][i]}}" alt="{{data[0][i]}}-image">
-                    <h6>Recommended fertilizer is : <span>{{data[0][i]}}</span></h6>
-                    <!-- <h4>{{data[0][i]}}</h4> -->
+            <div class="fertilizer-result-container">
+                <div class="fertilizer-result-card">
+                    {{ data }}
                 </div>
-                {% endfor %}
             </div>
             {% endif %}
         </div>

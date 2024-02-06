@@ -38,7 +38,9 @@
     text-align: center;
 }
 
-.crops-result {
+/* ---------------------------------crop result----------------------------------- */
+
+.crops-result, .fertilizer-result {
     width: 100%;
     margin-top: 35px;
     padding-bottom: 55px;
@@ -46,7 +48,7 @@
     background-color: rgb(234, 255, 234);
 }
 
-.crops-result > h2 {
+.crops-result > h2, .fertilizer-result > h2 {
     padding: 25px 0 0px 25px;
     text-transform: uppercase;
 }
@@ -56,7 +58,7 @@
     padding-bottom: 54px;
 }
 
-.crops-result-container {
+.crops-result-container, .fertilizer-result-container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -100,4 +102,28 @@
 .crops-result-card > h6 > span {
     font-weight: bold;
     text-transform: capitalize;
+}
+
+/* ---------------------------------fertilizer result----------------------------------- */
+.fertilizer-result-card {
+    width: 70%;
+}
+
+.fertilizer-result-card > h3 {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.fertilizer-result-card > h3 > span {
+    text-transform: uppercase;
+    color: rgb(255, 0, 0);
+}
+
+.fertilizer-result-card > h5 {
+    padding-bottom: 10px;
+    text-decoration: underline;
+}
+
+.fertilizer-result-card > ul > li {
+    line-height: 2;
 }
