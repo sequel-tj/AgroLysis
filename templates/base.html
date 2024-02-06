@@ -24,7 +24,7 @@
         <div class="navBar">
             <div class="navBar-container">
                 <div class="navBar-logo">
-                    <a href="/?lang={{lang}}">
+                    <a href="/?lang={{ lang }}">
                         <img src="{{ url_for('static', filename='/img/logo.gif') }}" alt="Logo" width="50" height="50"
                             style="margin-right: 15px; border-radius: 50%;">
                         <span class="logo-text" style="color: black;">AgroLysis</span>
@@ -38,11 +38,11 @@
                         <button type="menu" class="btn dropdown-toggle" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false" style="display: flex; justify-content: center; align-items: center;">
                             {% if lang == "English" %}
-                                <span style="font-family: sans-serif;">{{"Welcome, "}}</span>
+                                <span style="font-family: sans-serif;">{{"Welcome,"}} &nbsp;</span>
                             {% else %}
                                 <span style="font-family: sans-serif;">{{"स्वागत है, "}} &nbsp;</span>
                             {% endif %}
-                            <span id="login-user" style="font-family: sans-serif;">{{current_user.name.split()[0]}}</span>
+                            <span id="login-user" style="font-family: sans-serif; text-transform: capitalize;">{{current_user.name.split()[0]}}</span>
                         </button>
 
                         <ul class="dropdown-menu">
