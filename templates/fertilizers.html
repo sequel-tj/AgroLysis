@@ -62,12 +62,31 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div style="margin-top: 30px;" class="form-submit">
-                    <button  class="btn btn-outline-danger btn-lg" type="submit">Result</button>
-                </div>
+            <div style="margin-top: 30px;" class="form-submit">
+                <button  class="btn btn-outline-danger btn-lg" type="submit">Result</button>
             </div>
         </form>
+
+        {% if result %}
+        <div class="crops-result">
+            <h2>Result:</h2>
+            {% if data == "-1" %}
+            <h5>Sorry, we are not able to recommed a fertilizer for the given data and selected crop!!</h5>
+            {% else %}
+            <div class="crops-result-container">
+                {% for i in range(data[0]|length) %}
+                <div class="crops-result-card">
+                    <img src="{{data[1][i]}}" alt="{{data[0][i]}}-image">
+                    <h6>Recommended fertilizer is : <span>{{data[0][i]}}</span></h6>
+                    <!-- <h4>{{data[0][i]}}</h4> -->
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
     </div>
 </section>
 

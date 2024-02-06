@@ -143,9 +143,9 @@ def cropsResult():
         features = np.array([[n, p, k, temp, humidity, ph, rainfall]])
         predict = crops_model.predict(features)
 
-        print("crop prediction")
-        print("-------------------------------")
-        print("input data -> ", features[0])
+        # print("crop prediction")
+        # print("-------------------------------")
+        # print("input data -> ", features[0])
 
         crop_idx = {
             1: 'rice',
@@ -204,11 +204,11 @@ def cropsResult():
                 res.append(crop_idx[i])
                 res_url.append(crop_url[crop_idx[i]])
 
-            print("Output -> ", res)
-            print("-------------------------------")
-            return render_template('crops.html', result = True, data = [res, res_url])
+            # print("Output -> ", res)
+            # print("-------------------------------")
+            return render_template('crops.html', result = True, data = [res, res_url], lang = lang)
         else:
-            return render_template('crops.html', result = True, data = "-1")
+            return render_template('crops.html', result = True, data = "-1", lang = lang)
 
     return render_template('crops.html', result = False, lang = lang)
 
@@ -218,9 +218,16 @@ def requiredFertilizers():
     lang = 'English' if request.args.get('lang') == None else request.args.get('lang')
 
     if request.method == 'POST':
-        pass
+        n = request.form['nitrogen']
+        p = request.form['phosphorus']
+        k = request.form['potassium']
+        crop = request.form['cropName']
+        
+        # print(n, p, k, crop)
+
+        return render_template('fertilizers.html', result = True, data = "-1", lang = lang)
     
-    return 'Required Fertilizers result page'
+    return render_template('fertilizers.html', result = False, lang = lang)
 
 
 @app.route('/diseasePredictor', methods = ['GET', 'POST'])
